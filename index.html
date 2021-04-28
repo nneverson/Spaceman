@@ -12,20 +12,44 @@
     <title>Spaceman</title>
 </head>
 <body>
+
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <p>The goal is to correctly guess the color.
+        If the letter chosen is contained in the word, the player takes another turn guessing a letter.
+        Click on the letter in the alphabet area which will then trigger the letter to be revealed if it is contained in the
+        word.
+        If the letter guess is not right, the rocket ship will be built. If players make 4 wrong guesses the rocket hip will be
+        completed and launched into the sun.
+</p>
+    </div>
+
+</div>
+
+
     <div class="container">
         <h1 class="text-center">Spaceman</h1>
         <div class="float-right">Wrong Guesses: <span id="mistakes">0</span> of  <span id="max-wrong"></span></div>
         <!-- make the number of wrong guesses customizable for users -->
-        <img id='base' src="" alt="" srcset="">
+        <img id='base' src="images/png/blank.png" alt="" srcset="">
         <div class="text-center">
             <p id="title">Guess the Color:</p>
             <p id="wordSpotlight">The word to be guessed goes here</p>
             <p id="hintSpotlight"> </p>
             <div id="keyboard"> </div>
-            <div id="hint">
-                <button class='btn btn-info' onclick="giveHint()">Hint</button>
+
+            <div id="btnContainer" class="d-flex justify-content-around">
+                <!-- Trigger/Open The Modal -->
+                <button id="myBtn" class='btn btn-info'>Instructions</button><button class='btn btn-info' onclick="giveHint()">Hint</button>
+            
+                <button class= 'btn btn-info' onclick="reset()">Reset</button>
+            
             </div>
-            <button class= 'btn btn-info' onclick="reset()">Reset</button>
         </div>
     </div>
 </body>

@@ -69,3 +69,8 @@ randomnPharse();
 generateButtons();
 guessedWord();
 handleGuess();
+
+stretch goal:
+create a funtion that shows multiple hints
+create categories
+make the game long by allowing correct guesses to build a radio (to call for correct coordinate) and with each incorrect guess parts are removed, back to zero (nothing built) and with more incorrect guesses the ship is built then launched into space

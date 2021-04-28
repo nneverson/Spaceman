@@ -12,19 +12,17 @@ let phrases = [
 
 let answer = '';
 let maxWrong = 6;
-let mistake = 0;
+let mistakes = 0;
 let guessed = [];
-let wordStasus = null;
+//function to include is display guessed letters on the page.
+let wordStatus = null;
+//what is wordStatus for?
 
-
-function randomPhrase() {
-	answer =
-		phrases[
-			Math.floor(Math.random() * phrases.length)
-		];
+function randomnPharse() {
+	answer = phrases[Math.floor(Math.random() * phrases.length)];
 }
 function generateButtons() {
-	let buttonsHTML = 'abcdefghijklmnopqrstuvwxyz'
+	let buttonsHTML = 'qwertyuiopasdfghjklzxcvbnm'
 		.split('')
 		.map(
 			(letter) =>
@@ -47,17 +45,8 @@ function generateButtons() {
 		.join('');
 	document.getElementById('keyboard').innerHTML = buttonsHTML;
 }
-function handleGuess(chosenLetter) {
-	guessed.indexOf(chosenLetter) === -1 ? guessed.push(chosenLetter) : null;
-	document.getElementById(chosenLetter).setAttribute('disabled', true);
-	if (answer.indexOf(chosenLetter) >= 0) {
-		guessedWord();
-	} else if (answer.indexOf(chosenLetter)=== -1) {
-        mistake++
-        updateMistakes();
-    }
-}
-function guessedWord() {
+//map creates a new array populated with the results of calling a provided function on every element in the calling array
+function guessedWord(){
 	wordStatus = answer
 		.split('')
 		.map((letter) => (guessed.indexOf(letter) >= 0 ? letter : ' _ '))
@@ -66,12 +55,17 @@ function guessedWord() {
 	document.getElementById('wordSpotlight').innerHTML = wordStatus;
 }
 
-function updateMistakes() {
-    document.getElementById('mistakes').innerHTML = mistake;
+function handleGuess(chosenLetter){
+guessed.indexOf(chosenLetter) === -1 ? guessed.push(chosenLetter) : null
+document.getElementById(chosenLetter).setAttribute('disabled', true)
+if (answer.indexOf(chosenLetter) >= 0){
+    guessedWord()
 }
+}
+
 document.getElementById('max-wrong').innerHTML = maxWrong;
 
-randomPhrase();
+randomnPharse();
 generateButtons();
 guessedWord();
 handleGuess();

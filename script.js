@@ -1,14 +1,4 @@
-let phrases = [
-	"A bargin hunter's dream",
-	'A barrel of laughs',
-	'Big fish in a small pond',
-	'Bang for your buck',
-	'A stone throw away',
-	'A melting pot',
-	'A change of scenery',
-	'A cheap shot',
-	'A change of scenery',
-];
+let colors = ['pink', 'green', 'blue'];
 
 let answer = '';
 let maxWrong = 6;
@@ -16,12 +6,8 @@ let mistake = 0;
 let guessed = [];
 let wordStasus = null;
 
-
 function randomPhrase() {
-	answer =
-		phrases[
-			Math.floor(Math.random() * phrases.length)
-		];
+	answer = colors[Math.floor(Math.random() * colors.length)];
 }
 function generateButtons() {
 	let buttonsHTML = 'abcdefghijklmnopqrstuvwxyz'
@@ -52,10 +38,12 @@ function handleGuess(chosenLetter) {
 	document.getElementById(chosenLetter).setAttribute('disabled', true);
 	if (answer.indexOf(chosenLetter) >= 0) {
 		guessedWord();
-	} else if (answer.indexOf(chosenLetter)=== -1) {
-        mistake++
-        updateMistakes();
-    }
+		checkIfGameWon();
+	} else if (answer.indexOf(chosenLetter) === -1) {
+		mistake++;
+		updateMistakes();
+		checkIfGameLost();
+	}
 }
 function guessedWord() {
 	wordStatus = answer
@@ -67,7 +55,23 @@ function guessedWord() {
 }
 
 function updateMistakes() {
-    document.getElementById('mistakes').innerHTML = mistake;
+	document.getElementById('mistakes').innerHTML = mistake;
+}
+
+function checkIfGameWon() {
+	if (wordStatus === answer) {
+		document.getElementById('keyboard').innerHTML = 'You won';
+		document.getElementById('title').style.display = 'none';
+		document.getElementById('wordSpotlight').style.display = 'none';
+	}
+}
+
+function checkIfGameLost() {
+	if (mistake === maxWrong) {
+		document.getElementById('keyboard').innerHTML = 'You Lost';
+		document.getElementById('title').style.display = 'none';
+		document.getElementById('wordSpotlight').style.display = 'none';
+	}
 }
 document.getElementById('max-wrong').innerHTML = maxWrong;
 
@@ -75,3 +79,5 @@ randomPhrase();
 generateButtons();
 guessedWord();
 handleGuess();
+checkIfGameWon();
+checkIfGameLost();

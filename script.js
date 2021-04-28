@@ -1,5 +1,5 @@
-let colors = ['pink', 'green', 'blue'];
-
+let colors = ['pink', 'green', 'blue', 'brown'];
+let Hints = ['rabbit','the color of moss', 'the sky','wood']
 let answer = '';
 let maxWrong = 4;
 let mistake = 0;
@@ -10,7 +10,7 @@ function randomPhrase() {
 	answer = colors[Math.floor(Math.random() * colors.length)];
 }
 function generateButtons() {
-	let buttonsHTML = 'abcdefghijklmnopqrstuvwxyz'
+	let buttonsHTML = 'qwertyuiopasdfghjklzxcvbnm'
 		.split('')
 		.map(
 			(letter) =>
@@ -64,6 +64,7 @@ function checkIfGameWon() {
 		document.getElementById('keyboard').innerHTML = 'You won';
 		document.getElementById('title').style.display = 'none';
 		document.getElementById('wordSpotlight').style.display = 'none';
+        document.getElementById('hintSpotlight').style.display = 'none';
 	}
 }
 
@@ -86,7 +87,12 @@ function reset(){
 function updatePicture(){
     document.getElementById('base').src = '/images/png/' + mistake+'.png';
 }
+
 function giveHint(){
+    document.getElementById('hintSpotlight').innerHTML =
+			Hints[colors.indexOf(answer)];
+    //the hint index will equal the value of color array
+
 
 }
 document.getElementById('max-wrong').innerHTML = maxWrong;
@@ -94,7 +100,3 @@ document.getElementById('max-wrong').innerHTML = maxWrong;
 randomPhrase();
 generateButtons();
 guessedWord();
-handleGuess();
-checkIfGameWon();
-checkIfGameLost();
-giveHint();

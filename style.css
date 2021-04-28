@@ -1,3 +1,17 @@
-body {
-  white-space: pre-wrap;
+#keyboard {
+	display: flex;
+	align-items: flex-end;
+	flex-wrap: wrap;
+	justify-content: center;
+
+}
+
+/* #hintSpotlight{
+    display: none;
+} */
+#base {
+	display: block;
+	align-content: center;
+	margin-left: 250px;
+	position: absolute;
 }

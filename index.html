@@ -14,11 +14,14 @@
         <h1 class="text-center">Spaceman</h1>
         <div class="float-right">Wrong Guesses: <span id="mistakes">0</span> of  <span id="max-wrong"></span></div>
         <!-- make the number of wrong guesses customizable for users -->
-        <img src="/images/png/rocketbase.png" alt="" srcset="">
+        <img id='base' src="" alt="" srcset="">
         <div class="text-center">
             <p id="title">Guess the Color:</p>
             <p id="wordSpotlight">The word to be guessed goes here</p>
             <div id="keyboard"> </div>
+            <div id="hint">
+                <button class='btn btn-info' onclick="giveHint()">Hint</button>
+            </div>
             <button class= 'btn btn-info' onclick="reset()">Reset</button>
         </div>
     </div>

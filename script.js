@@ -1,7 +1,7 @@
 let colors = ['pink', 'green', 'blue'];
 
 let answer = '';
-let maxWrong = 6;
+let maxWrong = 4;
 let mistake = 0;
 let guessed = [];
 let wordStasus = null;
@@ -43,6 +43,7 @@ function handleGuess(chosenLetter) {
 		mistake++;
 		updateMistakes();
 		checkIfGameLost();
+        updatePicture();
 	}
 }
 function guessedWord() {
@@ -70,8 +71,23 @@ function checkIfGameLost() {
 	if (mistake === maxWrong) {
 		document.getElementById('keyboard').innerHTML = 'You Lost';
 		document.getElementById('title').style.display = 'none';
-		document.getElementById('wordSpotlight').style.display = 'none';
+		document.getElementById('wordSpotlight').innerHTML= 'The answer was: ' + answer;
 	}
+}
+function reset(){
+    mistake = 0;
+    guessed= [];
+    document.getElementById('base').src = '/images/png/0.png'
+    randomPhrase();
+    guessedWord();
+    updateMistakes();
+    generateButtons();
+}
+function updatePicture(){
+    document.getElementById('base').src = '/images/png/' + mistake+'.png';
+}
+function giveHint(){
+
 }
 document.getElementById('max-wrong').innerHTML = maxWrong;
 
@@ -81,3 +97,4 @@ guessedWord();
 handleGuess();
 checkIfGameWon();
 checkIfGameLost();
+giveHint();

@@ -1,7 +1,7 @@
 # Spaceman
 
 ## Description
-- Users can play a brain teaser that is space themed.
+- A three page front end brain teasing game that is space themed.
 
 ## Screenshots
 ![Starting](https://i.imgur.com/ZOPs0dH.png)

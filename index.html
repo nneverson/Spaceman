@@ -8,6 +8,7 @@
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" 
         crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
+    
     <script defer src="script.js"></script>
     <title>Spaceman</title>
 </head>
@@ -22,10 +23,9 @@
         <span class="close">&times;</span>
         <p>The goal is to correctly guess the color.
         If the letter chosen is contained in the word, the player takes another turn guessing a letter.
-        Click on the letter in the alphabet area which will then trigger the letter to be revealed if it is contained in the
+        Click on the letter in the keyboard area which will then trigger the letter to be revealed if it is contained in the
         word.
-        If the letter guess is not right, the rocket ship will be built. If players make 4 wrong guesses the rocket hip will be
-        completed and launched into the sun.
+        If the letter guessed is not right, the rocket ship will be built. If players make 4 wrong guesses the rocket ship will be completed and launched into the sun.
 </p>
     </div>
 
@@ -35,8 +35,9 @@
     <div class="container">
         <h1 class="text-center">Spaceman</h1>
         <div class="float-right">Wrong Guesses: <span id="mistakes">0</span> of  <span id="max-wrong"></span></div>
-        <!-- make the number of wrong guesses customizable for users -->
-        <img id='base' src="images/png/blank.png" alt="" srcset="">
+        <!-- make the number of wrong guesses customizable for users --> 
+        <img id='base' src="images/blank.png" alt="" srcset="">
+        <div class="text-center" id="childContainer"></div>
         <div class="text-center">
             <p id="title">Guess the Color:</p>
             <p id="wordSpotlight">The word to be guessed goes here</p>
@@ -45,7 +46,8 @@
 
             <div id="btnContainer" class="d-flex justify-content-around">
                 <!-- Trigger/Open The Modal -->
-                <button id="myBtn" class='btn btn-info'>Instructions</button><button class='btn btn-info' onclick="giveHint()">Hint</button>
+                <button id="myBtn" class='btn btn-info'>Instructions</button>
+                <button id="hint" class='btn btn-info' onclick="giveHint()">Hint</button>
             
                 <button class= 'btn btn-info' onclick="reset()">Reset</button>
             

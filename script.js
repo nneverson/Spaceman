@@ -119,13 +119,15 @@ function checkIfGameLost() {
 	}
 }
 function reset() {
-	mistake = 0;
-	guessed = [];
-	document.getElementById('base').src = 'images/blank.png';
-	randomPhrase();
-	guessedWord();
-	updateMistakes();
-	generateButtons();
+	// mistake = 0;
+	// guessed = [];
+	// document.getElementById('base').src ='images/blank.png';
+	// randomPhrase();
+	// guessedWord();
+	// updateMistakes();
+	// generateButtons(); 
+	//base source is not being chnaged to the blank png and the previous answer doesn't disappear
+location.reload();
 }
 function updatePicture() {
 	document.getElementById('base').src = 'images/' + mistake + '.png';

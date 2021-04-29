@@ -72,7 +72,7 @@ function generateButtons() {
 	document.getElementById('keyboard').innerHTML = buttonsHTML;
 }
 function handleGuess(chosenLetter) {
-	// guessed.indexOf(chosenLetter) === -1 ? guessed.push(chosenLetter) : null;
+	guessed.indexOf(chosenLetter) === -1 ? guessed.push(chosenLetter) : null;
 	//-2 means it doesn't exist
 	document.getElementById(chosenLetter).setAttribute('disabled', true);
 	if (answer.indexOf(chosenLetter) >= 0) {
